@@ -8,8 +8,8 @@ import { Users } from 'src/enitity/users.entity';
             host: 'localhost',
             port: 3309,
             username: 'postgres',
-            password: 'qwert',
-            database: 'postgres',
+            password: 'jklborromeo',      // work: qwert , home: jklborromeo
+            database: 'testdb',
             entities: [Users],
             synchronize: true
          })
