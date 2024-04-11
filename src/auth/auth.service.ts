@@ -9,9 +9,20 @@ export class AuthService {
                 private jwtService: JwtService){}
 
     /* call userService's method for searching the user, convert returned user to token and return it */
-    async login(username:string, password:string):Promise<{access_token: string}>{
+    async login(username:string, password:string):Promise<any>{
         const user = await this.userService.findUser(username,password);
-        const token = await this.jwtService.signAsync(user);
-        return {access_token: token}
+        if(user){
+            const token = await this.jwtService.signAsync(user);
+            return {
+                name: user.name,
+                access_token: token
+            }            
+        }
+        return null
+    }
+
+    /* call userService's method for creating the user */
+    async register(credentials: any): Promise<any>{
+        return await this.userService.registerUser(credentials);
     }
 }
