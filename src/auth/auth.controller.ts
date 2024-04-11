@@ -18,7 +18,7 @@ export class AuthController {
     async register(@Body() credentials: CreateUserDto):Promise<string>{
         const response = await this.authservice.register(credentials);
         if(!response){
-            throw new UnprocessableEntityException()
+            throw new UnprocessableEntityException('username is already existing')
         }
         return "Successfuly created"
     }

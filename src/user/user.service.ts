@@ -1,28 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { UserInterface } from './user.inteface';
 import * as bcrypt from 'bcrypt';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Users } from 'src/enitity/users.entity';
 
 @Injectable()
 export class UserService {
-    private users: UserInterface[] = [
-        {
-            name: 'haha',
-            username: 'hehe',
-            salt: '$2b$10$g1BnpTBUNhgh3gSzxOmOle',
-            password: '$2b$10$EW8V4zMe7IaMap31MK1eKODRQLOuuahxsz.MjE2SnHvBJNQcRmXNu'
-        }
-    ]
+
+    constructor(@InjectRepository(Users) private repo:Repository<Users>){}
 
     /* search user on db, return user object or null */
     async findUser(username:string, password:string): Promise<any>{
         /* search user using username */
-        let user: UserInterface;
-        for(let i=0; i<this.users.length; i++){
-            if( this.users[i].username === username){
-                user = this.users[i];
-                break;
-            }
-        }
+        const response = await this.repo.find({where:{username:username},take:1})
+        const user = response[0];
         /* test if password matched */
         if(user){
             const isMatched = await bcrypt.compare(password, user.password)
@@ -35,17 +26,22 @@ export class UserService {
         return null
     }
 
-    /* create/register user to db, return truth if no error */
+    /* create/register user to db, return truthy if no error */
     async registerUser(credentials:any):Promise<any>{
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(credentials.password, salt);
+        const existed = await this.repo.find({where:{name:credentials.username}})
+        if(existed.length>0){
+            return null;
+        }
         const user = {
             name: credentials.name,
             username: credentials.username,
             salt: salt,
             password: hash
         }
-        this.users.push(user);
+        const record = this.repo.create(user);
+        await this.repo.save(record);
         return true;
     }
 }
