@@ -73,12 +73,16 @@
       resetValidation () {
         this.$refs.form.resetValidation()
       },
-      submit(){
+      async submit(){
         this.validate();
         if(this.username == '' || this.password == '' || !this.valid){    
           console.log('error');
         }else{
-          console.log('submtting')
+          const credentials = {
+            username: this.username,
+            password: this.password
+          }
+          this.$store.dispatch('auth/login',credentials)
         }
       },
       registerInstead(){

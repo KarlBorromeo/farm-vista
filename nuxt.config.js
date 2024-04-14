@@ -75,6 +75,11 @@ export default {
     }
   },
 
+  // dotenv configuration
+  env: {
+    baseUrlApi: process.env.API_BASE_URL || 'http://localhost:3000'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

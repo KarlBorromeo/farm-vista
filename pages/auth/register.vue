@@ -115,12 +115,22 @@
         resetValidation () {
           this.$refs.form.resetValidation()
         },
-        submit(){
+        async submit(){
           this.validate();
           if(this.username == '' || this.password == '' || this.firstname == '' || this.lastname == '' || this.confirmPassword == '' || !this.valid){    
             console.log('error');
           }else{
-            console.log('regsitering')
+            const credentials = {
+              firstname: this.firstname,
+              lastname: this.lastname,
+              username: this.username,
+              password: this.confirmPassword
+            }
+            try{
+              await this.$store.dispatch('auth/register',credentials);
+            }catch(error){
+              
+            }
           }
         },
         loginInstead(){
