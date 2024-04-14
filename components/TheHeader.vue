@@ -1,6 +1,6 @@
 <template>
     <v-app-bar
-      absolute
+      block
       color="#F7F5F2"
       height="100px"
       class="px-5"

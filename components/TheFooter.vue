@@ -5,7 +5,7 @@
         style="width: 100vw;"
     >
         <img src="~assets/images/logo.png">
-        <h1 class="d-flex align-center">Farmvista</h1>
+        <h3 class="d-flex align-center">Farmvista</h3>
     </v-row>        
     <v-row
     justify="center"
