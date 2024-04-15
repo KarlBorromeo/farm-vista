@@ -18,7 +18,7 @@ export class UserService {
         if(user){
             const isMatched = await bcrypt.compare(password, user.password)
             if(isMatched){
-                return {name: user.name,
+                return {name: user.firstname + ' ' + user.lastname,
                         username: user.username
                     };
             }            
@@ -28,14 +28,16 @@ export class UserService {
 
     /* create/register user to db, return truthy if no error */
     async registerUser(credentials:any):Promise<any>{
+        console.log(credentials);
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(credentials.password, salt);
-        const existed = await this.repo.find({where:{name:credentials.username}})
+        const existed = await this.repo.find({where:{username:credentials.username}});
         if(existed.length>0){
             return null;
         }
         const user = {
-            name: credentials.name,
+            firstname: credentials.firstname,
+            lastname: credentials.lastname,
             username: credentials.username,
             salt: salt,
             password: hash
