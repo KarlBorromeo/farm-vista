@@ -32,9 +32,9 @@ export class FamilySourceIncome{
     profile: Profile
     
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    updated_At: Date
+    updated_at: Date
 
 }

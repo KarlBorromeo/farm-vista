@@ -20,16 +20,16 @@ export class FarmHouseholdAssets{
     @OneToMany(()=>FarmMachinery, (farmmachinery) => farmmachinery.farm_household_aseets,{cascade: ['remove', 'update']})
     farm_machinery: FarmMachinery
 
-    @OneToMany(()=>PoultryLivestock, (poultryLivestock) => poultryLivestock.farm_household_aseets,{cascade: ['remove', 'update']})
+    @OneToMany(()=>PoultryLivestock, (poultryLivestock) => poultryLivestock.farm_household_assets,{cascade: ['remove', 'update']})
     poultry_livestock: PoultryLivestock
 
     @OneToMany(()=>StructureBldgLand, (structureBldgLand) => structureBldgLand.farm_household_aseets,{cascade: ['remove', 'update']})
-    structure_BldgLand: StructureBldgLand
+    structure_bldg_land: StructureBldgLand
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    updated_At: Date
+    updated_at: Date
 
 }

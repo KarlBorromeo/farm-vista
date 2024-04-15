@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne , } from "typeorm";
 import { FamilyAffiliatedFarmOrg } from "./family_affiliated_farmOrg.entity";
 import { FamilySourceIncome } from "./family_source_income.entity";
 import { SourcesFarmIncome } from "./sources_farm_income.entity";
@@ -18,7 +18,7 @@ export class Profile{
     firstname: string
 
     @Column()
-    middleInitial: string
+    middle_initial: string
 
     @Column()
     contact_number: string
@@ -52,8 +52,8 @@ export class Profile{
 
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    updated_At: Date
+    updated_at: Date
 }

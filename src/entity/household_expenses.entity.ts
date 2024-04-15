@@ -41,7 +41,7 @@ export class HouseholdExpenses{
     special_occasions: number
 
     @Column({ nullable: true })
-    otherSpecified: string
+    other_specified: string
 
     @Column( {default: 0, nullable: true })
     others: number
@@ -51,8 +51,8 @@ export class HouseholdExpenses{
     profile: Profile
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    updated_At: Date
+    updated_at: Date
 }
