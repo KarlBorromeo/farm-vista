@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
-import { Profile } from "./profile.entity";
+import { Profile } from "../1/profile.entity";
 
 /* refers to the 2.9 in the Baseline Survey Forms*/
 @Entity()
@@ -28,7 +28,7 @@ export class FamilyAffiliatedFarmOrg{
     @Column()
     status_organization: string
 
-    @ManyToOne(()=>Profile)
+    @ManyToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'profile_id'})
     profile: Profile
 

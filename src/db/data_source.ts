@@ -9,7 +9,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             port: 3309,
             username: 'postgres',
             password: 'qwert',                          // work: qwert , home: jklborromeo
-            database: 'farmvista',
+            database: 'postgres',
             entities: ['dist/**/*.entity.js'],          // this path is the entity files converted to js in /dist
             synchronize: true
          })

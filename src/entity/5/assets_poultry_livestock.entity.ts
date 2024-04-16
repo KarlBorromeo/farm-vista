@@ -2,26 +2,26 @@ import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Man
 import { FarmHouseholdAssets } from "./farm_household_assets.entity";
 
 @Entity()
-export class FarmMachinery{
+export class PoultryLivestock{
 
     @PrimaryGeneratedColumn()
-    farm_machinery_id: number
+    poultry_livestock_id: number
 
     @Column()
-    farm_machinery_name: string
+    poultry_livestock_name: string
 
     @Column()
-    farm_machinery_quantity: number
+    poultry_livestock_quantity: number
 
     @Column()
     is_acquired_govt_program: string
 
     @Column()
-    farm_machinery_age: number
+    poultry_livestock_age: number
 
-    @ManyToOne(()=>FarmHouseholdAssets)
+    @ManyToOne(()=>FarmHouseholdAssets,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'items_farms_asset_id'})
-    farm_household_aseets: FarmHouseholdAssets
+    farm_household_assets: FarmHouseholdAssets
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;

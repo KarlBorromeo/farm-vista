@@ -1,27 +1,28 @@
 import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, Column } from "typeorm";
 import { FarmHouseholdAssets } from "./farm_household_assets.entity";
+import { ColdObservable } from "rxjs/internal/testing/ColdObservable";
 
 @Entity()
-export class PoultryLivestock{
+export class FarmTools{
 
     @PrimaryGeneratedColumn()
-    poultry_livestock_id: number
+    farmtool_id: number
 
     @Column()
-    poultry_livestock_name: string
+    farmtool_name: string
 
     @Column()
-    poultry_livestock_quantity: number
+    farmtool_quantity: number
 
     @Column()
     is_acquired_govt_program: string
 
     @Column()
-    poultry_livestock_age: number
+    farmtool_age: number
 
-    @ManyToOne(()=>FarmHouseholdAssets)
+    @ManyToOne(()=>FarmHouseholdAssets,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'items_farms_asset_id'})
-    farm_household_assets: FarmHouseholdAssets
+    farm_household_aseets: FarmHouseholdAssets
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;

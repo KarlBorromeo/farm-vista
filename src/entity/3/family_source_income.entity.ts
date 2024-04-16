@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm";
-import { Profile } from "./profile.entity";
+import { Profile } from "../1/profile.entity";
 
 @Entity()
 export class FamilySourceIncome{
@@ -27,7 +27,7 @@ export class FamilySourceIncome{
     @Column()
     is_involved_cofeeFarm: string
 
-    @ManyToOne(()=>Profile)
+    @ManyToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'profile_id'})
     profile: Profile
     

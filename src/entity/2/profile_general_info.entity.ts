@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from "typeorm";
-import { Profile } from "./profile.entity";
+import { Profile } from "../1/profile.entity";
 
 @Entity()
 export class ProfileGeneralInfo{
@@ -40,7 +40,7 @@ export class ProfileGeneralInfo{
     @Column({ nullable: true })
     organization_name: string | null
 
-    @OneToOne(()=>Profile)
+    @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name: 'profile_id'})
     profile: Profile
 

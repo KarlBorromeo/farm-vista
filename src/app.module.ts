@@ -9,7 +9,8 @@ import { DatabaseModule } from './db/data_source';                      //import
 
 
 @Module({
-  imports: [AuthModule,TypeOrmModule.forRoot(dataSourceOptions)],
+  // imports: [AuthModule,TypeOrmModule.forRoot(dataSourceOptions)],    // toggle to enable migration
+  imports: [AuthModule,DatabaseModule],                                 // toggle to enable auto synchronize
   controllers: [AppController],
   providers: [AppService,JwtStrategy],
 })

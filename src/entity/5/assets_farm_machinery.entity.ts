@@ -2,24 +2,24 @@ import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Man
 import { FarmHouseholdAssets } from "./farm_household_assets.entity";
 
 @Entity()
-export class StructureBldgLand{
+export class FarmMachinery{
 
     @PrimaryGeneratedColumn()
-    structure_bldg_land_id: number
+    farm_machinery_id: number
 
     @Column()
-    structure_bldg_land_name: string
+    farm_machinery_name: string
 
     @Column()
-    structure_bldg_land_quantity: number
+    farm_machinery_quantity: number
 
     @Column()
     is_acquired_govt_program: string
 
     @Column()
-    structure_bldg_land_age: number
+    farm_machinery_age: number
 
-    @ManyToOne(()=>FarmHouseholdAssets)
+    @ManyToOne(()=>FarmHouseholdAssets,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'items_farms_asset_id'})
     farm_household_aseets: FarmHouseholdAssets
 

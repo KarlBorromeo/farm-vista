@@ -3,14 +3,14 @@ import { FarmTools } from "./assets_farm_tools.entity";
 import { FarmMachinery } from "./assets_farm_machinery.entity";
 import { PoultryLivestock } from "./assets_poultry_livestock.entity";
 import { StructureBldgLand } from "./assets_structure_bldg_land.entity";
-import { Profile } from "../profile.entity";
+import { Profile } from "../1/profile.entity";
 @Entity()
 export class FarmHouseholdAssets{
 
     @PrimaryGeneratedColumn()
     items_farms_asset_id: number
 
-    @OneToOne(()=>Profile)
+    @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name: 'profile_id'})
     profile_id: Profile
 

@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToOne, JoinColumn } from "typeorm";
-import { Profile } from "./profile.entity";
+import { Profile } from "../1/profile.entity";
 
 @Entity()
 export class SourcesFarmIncome{
@@ -31,7 +31,7 @@ export class SourcesFarmIncome{
     @Column()
     other_source: number
 
-    @OneToOne(()=>Profile)
+    @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name:'profile_id'})
     profile: Profile
 

@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Profile } from "./profile.entity";
+import { Profile } from "../1/profile.entity";
 
 @Entity()
 export class HouseholdExpenses{
@@ -46,7 +46,7 @@ export class HouseholdExpenses{
     @Column( {default: 0, nullable: true })
     others: number
 
-    @OneToOne(()=>Profile)
+    @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name: 'profile_id'})
     profile: Profile
 
