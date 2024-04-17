@@ -6,25 +6,25 @@ export class FamilySourceIncome{
     @PrimaryGeneratedColumn()
     family_member_id:number
 
-    @Column()
+    @Column({length:50})
     fullname:string
 
     @Column()
     age: number
 
-    @Column()
+    @Column({length:7})
     sex: string
 
-    @Column()
+    @Column({length:15})
     role_in_family:string
 
-    @Column()
+    @Column({length:50})
     education_attainment: string
 
     @Column()
     estimated_contribution: number
 
-    @Column()
+    @Column({length:3})
     is_involved_cofeeFarm: string
 
     @ManyToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})

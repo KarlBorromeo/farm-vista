@@ -7,25 +7,25 @@ export class FamilyAffiliatedFarmOrg{
     @PrimaryGeneratedColumn()
     family_member_id:number
 
-    @Column()
+    @Column({length:50})
     fullname: string
 
-    @Column()
+    @Column({length:25})
     position: string
 
-    @Column()
+    @Column({type:'text'})
     name_organization: string
 
-    @Column()
+    @Column({length:20})
     type_organization: string
 
     @Column()
     years_as_member: number
 
-    @Column()
+    @Column({length:25})
     status_membership: string
 
-    @Column()
+    @Column({length:25})
     status_organization: string
 
     @ManyToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})

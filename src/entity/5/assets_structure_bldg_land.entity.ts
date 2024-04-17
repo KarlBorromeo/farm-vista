@@ -7,13 +7,13 @@ export class StructureBldgLand{
     @PrimaryGeneratedColumn()
     structure_bldg_land_id: number
 
-    @Column()
+    @Column({length:30})
     structure_bldg_land_name: string
 
     @Column()
     structure_bldg_land_quantity: number
 
-    @Column()
+    @Column({length:3})
     is_acquired_govt_program: string
 
     @Column()

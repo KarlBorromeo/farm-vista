@@ -32,16 +32,16 @@ export class Profile{
     @PrimaryGeneratedColumn()
     profile_id:number
 
-    @Column()
+    @Column({length:20})
     lastname: string
 
-    @Column()
+    @Column({length:20})
     firstname: string
 
-    @Column()
+    @Column({length:2,nullable:true})
     middle_initial: string
 
-    @Column()
+    @Column({length:11})
     contact_number: string
 
     @Column({ nullable: true })

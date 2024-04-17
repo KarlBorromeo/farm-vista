@@ -7,13 +7,13 @@ export class PoultryLivestock{
     @PrimaryGeneratedColumn()
     poultry_livestock_id: number
 
-    @Column()
+    @Column({length:30})
     poultry_livestock_name: string
 
     @Column()
     poultry_livestock_quantity: number
 
-    @Column()
+    @Column({length:3})
     is_acquired_govt_program: string
 
     @Column()

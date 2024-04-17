@@ -8,13 +8,13 @@ export class FarmTools{
     @PrimaryGeneratedColumn()
     farmtool_id: number
 
-    @Column()
+    @Column({length:30})
     farmtool_name: string
 
     @Column()
     farmtool_quantity: number
 
-    @Column()
+    @Column({length:3})
     is_acquired_govt_program: string
 
     @Column()

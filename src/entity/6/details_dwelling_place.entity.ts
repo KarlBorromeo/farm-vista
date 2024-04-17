@@ -7,28 +7,28 @@ export class DetailsDwellingPlace{
     @PrimaryGeneratedColumn()
     detail_dwelling_place_id: number
 
-    @Column()
+    @Column({length:30})
     house_ownerhsip: string
 
     @Column()
     number_of_rooms: number
 
-    @Column()
+    @Column({type:'text'})
     roof_materials_made: string
 
-    @Column()
+    @Column({type:'text'})
     walls_materials_made: string
 
-    @Column()
+    @Column({length:100})
     kind_toilet_facilty: string
     
-    @Column()
+    @Column({length:30})
     kind_lighting_facility: string
 
-    @Column()
+    @Column({length:30})
     source_cooking_fuel: string
 
-    @Column()
+    @Column({length:40})
     source_drinking_supply: string
 
     @ManyToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})

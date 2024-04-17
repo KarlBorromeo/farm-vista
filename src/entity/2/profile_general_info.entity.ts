@@ -10,34 +10,34 @@ export class ProfileGeneralInfo{
     @Column()
     age: number
 
-    @Column()
+    @Column({length:7})
     sex: string
 
-    @Column()
+    @Column({length:25})
     civil_status: string
 
-    @Column()
+    @Column({length:25})
     religion: string
 
-    @Column()
+    @Column({length:100})
     highest_education_attained: string
 
-    @Column()
+    @Column({length:3})
     is_belong_marginalized_sector: string
 
-    @Column({ nullable: true })
+    @Column({type:'text',nullable: true })
     marginalized_sector_name: string | null
 
-    @Column()
+    @Column({length:20})
     dialect_spoken: string
 
-    @Column()
+    @Column({length:3})
     is_member_farmer_orgranization: string
 
-    @Column({ nullable: true })
+    @Column({length:30, nullable: true })
     organization_type_membership: string
 
-    @Column({ nullable: true })
+    @Column({length:40, nullable: true })
     organization_name: string | null
 
     @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
