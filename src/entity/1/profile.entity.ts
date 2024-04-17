@@ -19,6 +19,13 @@ import { LaborOperationCoffee } from "../9/labor_operations_coffee.entity";
 import { DetailsWagesOperation } from "../9/details_wages_operation.entity";
 import { CostsInputsCoffee } from "../9/costs_inputs_coffee.entity";
 import { ProductionProblems } from "../9/production_problems.entity";
+import { PestDamageObserved } from "../10/pest_damage_observed.entity";
+import { PestManagementPractices } from "../10/pest_management_practices.entity";
+import { CoffeeHarvestingMarketing } from "../11/cofee_harvest_marketing.entity";
+import { TechnologyAwareness } from "../12/technology_awareness.entity";
+import { TechnologyAwarenessAdoption } from "../12/tech_awareness_adoption.entity";
+import { InformationKnowledgeSources } from "../13/info_knowledge_source.entity";
+
 /* refers to the 1 in the Baseline Survey Forms*/
 @Entity()
 export class Profile{
@@ -119,6 +126,30 @@ export class Profile{
     // (9.5) Production problems:
     @OneToMany(()=> ProductionProblems,(productionProblems)=> productionProblems.profile )
     production_problems: ProductionProblems[]
+
+    // (10) What pest(s) damage did you commonly observe in the last cropping seasons? (see code 23)
+    @OneToMany(()=>PestDamageObserved,(pestDamageObserved)=>pestDamageObserved.profile)
+    pest_damage_observed: PestDamageObserved[]
+
+    // (10.1 - 10.9b) PEST MANAGEMENT PRACTICES
+    @OneToOne(()=>PestManagementPractices)
+    pest_management_practices: PestManagementPractices
+
+    // XI. COFFEE HARVEST AND MARKETING
+    @OneToOne(()=>CoffeeHarvestingMarketing)
+    coffee_harvest_market: CoffeeHarvestingMarketing
+
+    // XII. TECHNOLOGY AWARENESS AND ADOPTION, Have you heard about coffee farming technologies/ practices?
+    @OneToOne(()=>TechnologyAwareness)
+    techonology_awareness: TechnologyAwareness
+
+    // XII. TECHNOLOGY AWARENESS AND ADOPTION
+    @OneToOne(()=>TechnologyAwarenessAdoption)
+    technology_awareness_adoption: TechnologyAwarenessAdoption
+
+    // XIII. INFORMATION AND KNOWLEDGE SOURCES: COMMUNICATION VARIABLES
+    @OneToOne(()=>InformationKnowledgeSources)
+    info_knowledge_sources: InformationKnowledgeSources
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
