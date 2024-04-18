@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, HttpStatus,Res} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -28,22 +28,48 @@ export class UserService {
 
     /* create/register user to db, return truthy if no error */
     async registerUser(credentials:any):Promise<any>{
-        console.log(credentials);
+        console.group('credentials:',credentials)
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(credentials.password, salt);
         const existed = await this.repo.find({where:{username:credentials.username}});
+        console.log(existed);
         if(existed.length>0){
-            return null;
+            throw new ForbiddenException('existing username');
         }
         const user = {
             firstname: credentials.firstname,
             lastname: credentials.lastname,
             username: credentials.username,
             salt: salt,
-            password: hash
+            password: hash,
+            role_id: 1
         }
+        console.log('user:',user);
         const record = this.repo.create(user);
-        await this.repo.save(record);
-        return true;
+        console.log('record: ',record)
+        try{
+            await this.repo
+                .createQueryBuilder()
+                .insert()
+                .into(Users)
+                .values([
+                    { 
+                        firstname:user.firstname,
+                        lastname: user.lastname,
+                        username: user.username,
+                        salt: user.salt,
+                        password: user.password,
+                        role: {
+                            _id: user.role_id
+                        }
+                    },
+                ])
+                .execute()
+                return 'successfuly created'
+        }catch(error){
+            throw new BadRequestException()
+        }
+       
+        
     }
 }

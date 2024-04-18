@@ -1,4 +1,4 @@
-import { Controller, Request, Post, UseGuards, Body, UnprocessableEntityException } from '@nestjs/common';
+import { Controller, Request, Post, UseGuards, Body } from '@nestjs/common';
 import { LocalAuthGuard } from './guards/local.auth.guard';
 import { CreateUserDto } from './dto/create.user.dto';
 import { AuthService } from './auth.service';
@@ -16,10 +16,6 @@ export class AuthController {
 
     @Post('/register')
     async register(@Body() credentials: CreateUserDto):Promise<string>{
-        const response = await this.authservice.register(credentials);
-        if(!response){
-            throw new UnprocessableEntityException('username is already existing')
-        }
-        return "Successfuly created"
+        return this.authservice.register(credentials);
     }
 }

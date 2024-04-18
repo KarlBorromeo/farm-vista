@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 
@@ -16,13 +16,18 @@ export class AuthService {
             return {
                 ...user,
                 access_token: token
-            }            
+            }          
         }
         return null
     }
 
     /* call userService's method for creating the user */
     async register(credentials: any): Promise<any>{
-        return await this.userService.registerUser(credentials);
+        try{
+            return await this.userService.registerUser(credentials); 
+        }catch(error){
+            throw error
+        };
+
     }
 }
