@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class CostsInputsCoffee{
 
     @PrimaryGeneratedColumn()
-    costs_inputs_coffee_id: number
+    _id: number
 
     /* Note: json format must be : {
         price: 0,

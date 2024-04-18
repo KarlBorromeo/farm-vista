@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class ProfileGeneralInfo{
 
     @PrimaryGeneratedColumn()
-    general_info_id: number
+    _id: number
 
     @Column()
     age: number

@@ -4,7 +4,7 @@ import { Profile } from "../1/profile.entity";
 @Entity()
 export class FamilySourceIncome{
     @PrimaryGeneratedColumn()
-    family_member_id:number
+    _id:number
 
     @Column({length:50})
     fullname:string

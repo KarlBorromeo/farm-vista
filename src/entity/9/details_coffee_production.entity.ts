@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class DetailsCoffeeProduction{
 
     @PrimaryGeneratedColumn()
-    details_coffee_production_id: number
+    _id: number
 
     @Column({type: 'date'})
     start_planting: Date

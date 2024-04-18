@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class YearCurrentResidence{
 
     @PrimaryGeneratedColumn()
-    year_current_reside_id: number
+    _id: number
 
     @Column()
     number_year: number

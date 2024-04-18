@@ -6,7 +6,7 @@ import { ColdObservable } from "rxjs/internal/testing/ColdObservable";
 export class FarmTools{
 
     @PrimaryGeneratedColumn()
-    farmtool_id: number
+    _id: number
 
     @Column({length:30})
     farmtool_name: string

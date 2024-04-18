@@ -5,42 +5,42 @@ import { Profile } from "../1/profile.entity";
 export class CropingCalendarCoffee{
 
     @PrimaryGeneratedColumn()
-    cropping_calendar_coffee_id: number
+    _id: number
 
-    @Column({type: 'text'})
+    @Column({length:60})
     january: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     february: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     march: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     april: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     may: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     june: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     july: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     august: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     september: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     october: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     november: string
 
-    @Column({type: 'text'})
+    @Column({length:60})
     december: string
 
     @OneToOne(()=>Profile,{ onDelete: 'CASCADE', nullable: false})

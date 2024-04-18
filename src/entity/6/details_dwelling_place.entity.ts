@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class DetailsDwellingPlace{
 
     @PrimaryGeneratedColumn()
-    detail_dwelling_place_id: number
+    _id: number
 
     @Column({length:30})
     house_ownerhsip: string

@@ -4,7 +4,7 @@ import { Roles } from "./roles.entity";
 @Entity()
 export class Users{
     @PrimaryGeneratedColumn()
-    id:string;
+    _id:string;
 
     @Column({length:15})
     firstname: string;
@@ -25,7 +25,6 @@ export class Users{
     @JoinColumn({name:'role_id'})
     role:Roles
     
-
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 

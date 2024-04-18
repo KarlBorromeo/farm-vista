@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class ParcelInformation{
 
     @PrimaryGeneratedColumn()
-    parcel_information_id: number
+    _id: number
 
     @Column()
     parcel_number: number
@@ -13,25 +13,25 @@ export class ParcelInformation{
     @Column()
     area: number
 
-    @Column()
+    @Column({length: 50})
     tenure: string
 
-    @Column()
+    @Column({length:50})
     topography: string
 
-    @Column()
+    @Column({length:20})
     soil_fertility: string
 
-    @Column()
+    @Column({length:40})
     cropping_system: string
 
-    @Column()
+    @Column({length:30})
     source_of_water: string
 
-    @Column()
+    @Column({type:'text'})
     land_use_status: string
 
-    @Column()
+    @Column({type:'text'})
     crops_planted: string
 
     @ManyToOne(()=>Profile,{ onDelete: 'CASCADE', nullable: false})

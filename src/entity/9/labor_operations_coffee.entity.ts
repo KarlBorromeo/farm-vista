@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class LaborOperationCoffee{
 
     @PrimaryGeneratedColumn()
-    labor_operation_coffeee_id: number
+    _id: number
 
     /* Note: json format must be : {
         manDay_FL: 0,

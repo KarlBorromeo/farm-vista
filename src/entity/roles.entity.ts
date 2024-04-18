@@ -4,7 +4,7 @@ import { Users } from "./users.entity";
 @Entity()
 export class Roles{
     @PrimaryGeneratedColumn()
-    role_id:string;
+    _id:string;
 
     @Column({unique:true,length:50})
     role_type:string

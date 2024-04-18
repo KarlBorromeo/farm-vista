@@ -5,9 +5,9 @@ import { Profile } from "../1/profile.entity";
 export class DetailsCoffeeArea{
 
     @PrimaryGeneratedColumn()
-    details_coffee_area_id: number
+    _id: number
 
-    @Column()
+    @Column({type:'text'})
     classification_crops: string
 
     @Column()
@@ -19,13 +19,13 @@ export class DetailsCoffeeArea{
     @Column()
     number_plants_stands: number
 
-    @Column()
+    @Column({type:'text'})
     intercrop_variety: string
 
     @Column()
     total_area: number
     
-    @Column()
+    @Column({type:'text'})
     seed_source: string
 
     @OneToOne(()=>Profile,{onDelete: 'CASCADE', nullable: false})

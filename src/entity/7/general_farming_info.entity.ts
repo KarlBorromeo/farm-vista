@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class GeneralFarmingInfo{
 
     @PrimaryGeneratedColumn()
-    general_farming_info_id: number
+    _id: number
 
     @Column()
     avgyrs_general_farming: number
@@ -13,8 +13,8 @@ export class GeneralFarmingInfo{
     @Column()
     avgyrs_ctr_farming: number
 
-    @Column()
-    is_there_stopped_farming: string
+    @Column({length:3})
+    is_there_time_stopped_farming: string
 
     @Column({nullable: true})
     year_stopped_farming: number | null

@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class SourcesFarmIncome{
 
     @PrimaryGeneratedColumn()
-    income_id:number
+    _id:number
 
     @Column()
     coffee: number

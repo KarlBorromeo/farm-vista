@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class TechnologyAwarenessAdoption{
 
     @PrimaryGeneratedColumn()
-    technology_awareness_adoption_id: number
+    _id: number
 
     /* Note: json format must be : {
         is_heard: 'yes'|'no',

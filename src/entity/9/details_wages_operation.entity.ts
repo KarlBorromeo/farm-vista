@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class DetailsWagesOperation{
 
     @PrimaryGeneratedColumn()
-    details_wages_operation_id: number
+    _id: number
 
     @Column()
     amnt_paid_labor: number

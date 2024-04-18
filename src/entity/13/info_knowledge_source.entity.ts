@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class InformationKnowledgeSources{
 
     @PrimaryGeneratedColumn()
-    information_knowledge_source_id: number
+    _id: number
 
     @Column({length:3})
     have_functional_radio: string

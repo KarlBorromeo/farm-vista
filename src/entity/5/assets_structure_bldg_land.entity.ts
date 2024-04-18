@@ -5,7 +5,7 @@ import { FarmHouseholdAssets } from "./farm_household_assets.entity";
 export class StructureBldgLand{
 
     @PrimaryGeneratedColumn()
-    structure_bldg_land_id: number
+    _id: number
 
     @Column({length:30})
     structure_bldg_land_name: string

@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class InfrastructuralDistanceAccesibility{
 
     @PrimaryGeneratedColumn()
-    distance_accesibility_id: number
+    _id: number
 
     /* Note: json format must be : {
         distance_qty: number,
@@ -14,22 +14,22 @@ export class InfrastructuralDistanceAccesibility{
         dominant_type_road: string
     } */
     @Column({type: 'json'})
-    farm_to_nearest_road: any
+    farm_to_nearest_road: JSON
 
     @Column({type: 'json'})
-    farm_to_residence: any
+    farm_to_residence: JSON
 
     @Column({type: 'json'})
-    farm_to_output_market: any
+    farm_to_output_market: JSON
 
     @Column({type: 'json'})
-    residence_to_output_market: any
+    residence_to_output_market: JSON
 
     @Column({type: 'json'})
-    farm_to_inputs_supply: any
+    farm_to_inputs_supply: JSON
 
     @Column({type: 'json'})
-    residence_to_inputs_supply: any
+    residence_to_inputs_supply: JSON
 
     @OneToOne(()=>Profile,{onDelete: 'CASCADE', nullable: false})
     @JoinColumn({name: 'profile_id'})

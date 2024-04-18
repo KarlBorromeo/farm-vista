@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class PestManagementPractices{
 
     @PrimaryGeneratedColumn()
-    pest_management_pratice_id: number
+    _id: number
 
     @Column({length: 3})
     did_use_pesticide: string

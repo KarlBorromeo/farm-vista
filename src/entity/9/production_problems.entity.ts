@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class ProductionProblems{
 
     @PrimaryGeneratedColumn()
-    production_problem_id: number
+    _id: number
 
     @Column({type: 'text'})
     problem: string

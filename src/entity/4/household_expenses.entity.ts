@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class HouseholdExpenses{
 
     @PrimaryGeneratedColumn()
-    expenses_id: number
+    _id: number
 
     @Column()
     food: number

@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class PestDamageObserved{
 
     @PrimaryGeneratedColumn()
-    pest_damage_observed_id: number
+    _id: number
 
     @Column({length:20})
     pests_diseases_plants: string

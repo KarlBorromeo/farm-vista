@@ -5,12 +5,12 @@ import { Profile } from "../1/profile.entity";
 export class FarmWasteManagement{
 
     @PrimaryGeneratedColumn()
-    farm_waste_management_id: number
+    _id: number
 
-    @Column()
+    @Column({length:30})
     crops_grown: string
 
-    @Column({type: 'text'})
+    @Column({length:30})
     kind_waste_produced:string
 
     @Column({default: 0})
@@ -22,7 +22,7 @@ export class FarmWasteManagement{
     @Column({default: 0})
     volume_waste_sludge: number
 
-    @Column()
+    @Column({length:3})
     is_utilized: string
 
     @OneToOne(()=>Profile,{ onDelete: 'CASCADE', nullable: false})

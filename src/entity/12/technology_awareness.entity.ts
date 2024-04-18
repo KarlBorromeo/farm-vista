@@ -5,7 +5,7 @@ import { Profile } from "../1/profile.entity";
 export class TechnologyAwareness{
 
     @PrimaryGeneratedColumn()
-    technology_awareness_id: number
+    _id: number
 
     @Column({length:3})
     have_heard_coffee_farming_techonologies:string

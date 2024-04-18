@@ -5,7 +5,7 @@ import { FarmHouseholdAssets } from "./farm_household_assets.entity";
 export class FarmMachinery{
 
     @PrimaryGeneratedColumn()
-    farm_machinery_id: number
+    _id: number
 
     @Column({length:30})
     farm_machinery_name: string

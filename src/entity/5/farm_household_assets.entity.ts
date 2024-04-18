@@ -8,7 +8,7 @@ import { Profile } from "../1/profile.entity";
 export class FarmHouseholdAssets{
 
     @PrimaryGeneratedColumn()
-    items_farms_asset_id: number
+    _id: number
 
     @OneToOne(()=>Profile,{onDelete: 'CASCADE',nullable: false})
     @JoinColumn({name: 'profile_id'})

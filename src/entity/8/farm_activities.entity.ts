@@ -5,12 +5,12 @@ import { Profile } from "../1/profile.entity";
 export class FarmActivities{
 
     @PrimaryGeneratedColumn()
-    farm_activities_id: number
+    _id: number
 
     @Column({type: 'text'})
     agricultural_system: string
 
-    @Column()
+    @Column({length:3})
     know_proper_reutilization_agriwaste: string
 
     @Column({type: 'text',nullable: true})

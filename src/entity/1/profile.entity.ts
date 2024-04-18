@@ -30,7 +30,7 @@ import { InformationKnowledgeSources } from "../13/info_knowledge_source.entity"
 @Entity()
 export class Profile{
     @PrimaryGeneratedColumn()
-    profile_id:number
+    _id:number
 
     @Column({length:20})
     lastname: string
