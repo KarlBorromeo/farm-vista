@@ -9,7 +9,7 @@ dotenv.config();
 @Module({
   imports: [ UserModule,
             JwtModule.register({
-            secret: 'process.env.JWT_KEY',
+            secret: process.env.JWT_KEY,
             signOptions: { expiresIn: '1h' },
             })
   ],
