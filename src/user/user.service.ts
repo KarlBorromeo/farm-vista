@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, HttpStatus,Res} from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, HttpStatus,Res, UnauthorizedException} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -23,7 +23,7 @@ export class UserService {
                     };
             }            
         }
-        return null
+        throw new UnauthorizedException()
     }
 
     /* create/register user to db, return truthy if no error */
@@ -45,8 +45,6 @@ export class UserService {
             role_id: 1
         }
         console.log('user:',user);
-        const record = this.repo.create(user);
-        console.log('record: ',record)
         try{
             await this.repo
                 .createQueryBuilder()
@@ -65,8 +63,12 @@ export class UserService {
                     },
                 ])
                 .execute()
-                return 'successfuly created'
+                return {
+                    name: user.firstname + ' ' + user.lastname,
+                    username: user.username
+                }
         }catch(error){
+            console.log(error)
             throw new BadRequestException()
         }
        

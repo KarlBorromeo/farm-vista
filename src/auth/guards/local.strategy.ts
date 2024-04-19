@@ -11,10 +11,6 @@ export class LocalStrategy extends PassportStrategy(Strategy){
 
     /* authentication guard, returning token */
     async validate(username:string,password:string):Promise<any>{
-        const token =  await this.authService.login(username,password);
-        if(!token){
-            throw new UnauthorizedException('wrong credentials');
-        }
-        return token;
+        return await this.authService.login(username,password);
     }
 }
