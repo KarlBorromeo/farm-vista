@@ -1,14 +1,14 @@
 <template>
     <v-row
-      class="d-flex justify-center align-center"
-      style="min-height: 80vh"
+      class="d-flex justify-center align-center fill-height overflow-y-auto"
+      style="min-height: 800px;"
     >
       <v-col
-      cols="10" sm="6"
+      cols="10" xs="9" sm="8" md="6" lg="5" xl="4"
       class="text-center"
       id="form-container"
       >
-          <h3 class="mb-2" style="color: #7C5B4B;">Register</h3>
+          <h2 class="mb-2" style="color: #7C5B4B;">Register</h2>
           <v-form
             ref="form"
             v-model="valid"
@@ -56,6 +56,13 @@
               required
             ></v-text-field>
 
+            <v-select
+              class="mt-3"
+              :items="items"
+              label="Standard"
+              dense
+            ></v-select>
+
             <v-btn block color="primary my-2" type="submit">Register</v-btn>
             <p class="pa-1 ma-0">Already have an account?</p>
             <v-btn block color="success mt-2" type="button" @click="loginInstead">Login Instead</v-btn>
@@ -68,40 +75,41 @@
   
   <script>
     export default {
-      layout:'authentication',
+      // layout:'authentication',
       data(){
         return{
-            valid: false,
-        username: '',
-        usernameRules: [
-          v => !!v || 'Userame is required',
-          v => (v && v.length <= 10) || 'Username must be less than 10 characters',
-        ],
-        firstname: '',
-        lastname: '',
-        nameRules:[
-            v => !!v || 'Name is required'
-        ],
-        password: '',
-        passwordRules: [
-          v => !!v || 'Password is required',
-          v => {if(v.length < 7){
-                    return 'Passowrd too short'
-                }else{
-                return true;
-                }   
-            }
-        ],
-        confirmPassword: '',
-        confirmPasswordRules: [
-            v => !!v || 'Please confirm password',
-            v => {if(this.password === v){
-                    return true
-                }else{
-                    return 'Password doesn\'t match'
-                    }
-                }
-            ]
+          valid: false,
+          username: '',
+          usernameRules: [
+            v => !!v || 'Userame is required',
+            v => (v && v.length <= 10) || 'Username must be less than 10 characters',
+          ],
+          firstname: '',
+          lastname: '',
+          nameRules:[
+              v => !!v || 'Name is required'
+          ],
+          password: '',
+          passwordRules: [
+            v => !!v || 'Password is required',
+            v => {if(v.length < 7){
+                      return 'Passowrd too short'
+                  }else{
+                  return true;
+                  }   
+              }
+          ],
+          confirmPassword: '',
+          confirmPasswordRules: [
+              v => !!v || 'Please confirm password',
+              v => {if(this.password === v){
+                      return true
+                  }else{
+                      return 'Password doesn\'t match'
+                      }
+                  }
+              ],
+          items: ['Field Validator','Super Admin','Admin','NPRB']
         }
       },
   
@@ -142,6 +150,8 @@
   
   <style scoped>
   #form-container{
+    background-color: white;
+    border-radius: .5rem;
     box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.2);
   }
   </style>

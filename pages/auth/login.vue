@@ -1,15 +1,13 @@
 <template>
   <v-row
-    class="d-flex justify-center align-center"
-    style="min-height: 70vh"
+    class="d-flex justify-center align-center fill-height"
   >
-
     <v-col
-    cols="10" sm="4" lg
+    cols="10" xs="9" sm="8" md="6" lg="5" xl="4"
     class="text-center"
     id="form-container"
     >
-        <h3 class="mb-2" style="color: #7C5B4B;">Log in</h3>
+        <h2 class="mb-2" style="color: #7C5B4B;">Log in</h2>
         <v-form
           ref="form"
           v-model="valid"
@@ -47,7 +45,7 @@
 
 <script>
   export default {
-    layout:'authentication',
+    // layout:'authentication',
     data(){
       return{
       valid: false,
@@ -94,6 +92,8 @@
 
 <style scoped>
 #form-container{
+  background-color: white;
+  border-radius: .5rem;
   box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.2);
 }
 </style>
