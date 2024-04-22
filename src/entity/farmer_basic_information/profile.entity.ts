@@ -24,8 +24,7 @@ import { CoffeeHarvestingMarketing } from "../coffee_harvest_marketing/cofee_har
 import { TechnologyAwareness } from "../technology_awareness_adoption/technology_awareness.entity";
 import { TechnologyAwarenessAdoption } from "../technology_awareness_adoption/tech_awareness_adoption.entity";
 import { InformationKnowledgeSources } from "../information_knowledge_sources/info_knowledge_source.entity";
-import { OpenEndedQuestions } from "../open_ended_questions/open_ended_questions_entity";
-import { OpenEndedQuestionsRatings } from "../open_ended_questions/open_ended_questions_rating_entity";
+import { OpenEndedQuestions } from "../open_ended_questions/open_ended_questions.entity";
 
 /* refers to the 1 in the Baseline Survey Forms*/
 @Entity()
@@ -150,11 +149,11 @@ export class Profile{
 
     // XIV. Open ended Questions:
     @OneToOne(()=>OpenEndedQuestions)
-    open_ended_questions: OpenEndedQuestions
+    open_ended_question: OpenEndedQuestions
 
     // XIV. Open ended Questions Ratings:
-    @OneToOne(()=>OpenEndedQuestionsRatings)
-    open_ended_question_ratings: OpenEndedQuestionsRatings
+    // @OneToOne(()=>OpenEndedQuestionsRatings)
+    // open_ended_question_ratings: OpenEndedQuestionsRatings
 
     @CreateDateColumn({ name: 'created_at', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;

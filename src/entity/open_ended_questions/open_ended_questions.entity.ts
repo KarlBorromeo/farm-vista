@@ -7,13 +7,13 @@ export class OpenEndedQuestions{
     @PrimaryGeneratedColumn()
     _id: number
 
-    @Column({type:'string'})
+    @Column({type:'text'})
     good_agricultural_practice_used_coffee:string
 
-    @Column({type:'string'})
+    @Column({type:'text'})
     challenges_encountered_coffee:string
 
-    @Column({type:'string'})
+    @Column({type:'text'})
     proposed_intervention_coffee:string
 
     @OneToOne(()=>Profile,{ onDelete: 'CASCADE', nullable: false})
