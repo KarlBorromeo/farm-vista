@@ -44,7 +44,10 @@
 
 <script>
 export default {
-  name: 'InspirePage'
+  name: 'InspirePage',
+  beforeMount(){
+      this.$store.commit('udpateHeaderTitle','UPLOAD FILE');
+  }
 }
 </script>
 

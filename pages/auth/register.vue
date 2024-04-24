@@ -145,6 +145,9 @@
             this.$router.replace('/auth/login')
         }
       },
+      beforeMount(){
+        this.$store.commit('udpateHeaderTitle','REGISTER');
+    }
     }
   </script>
   
