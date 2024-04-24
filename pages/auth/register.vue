@@ -147,7 +147,7 @@
       },
       beforeMount(){
         this.$store.commit('udpateHeaderTitle','REGISTER');
-    }
+      }
     }
   </script>
   

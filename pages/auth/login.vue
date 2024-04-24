@@ -87,6 +87,9 @@
         this.$router.replace('/auth/register');
       }
     },
+    beforeMount(){
+      this.$store.commit('udpateHeaderTitle','LOGIN');
+    }
   }
 </script>
 
