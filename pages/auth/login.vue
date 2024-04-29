@@ -7,7 +7,7 @@
     class="text-center"
     id="form-container"
     >
-        <h2 class="mb-2" style="color: #7C5B4B;">Log in</h2>
+        <h2 class="mb-2" style="color: #7C5B4B;">Log in</h2>    
         <v-form
           ref="form"
           v-model="valid"
@@ -38,13 +38,17 @@
           <v-btn block color="success mt-2" type="button" @click="registerInstead">Register Account</v-btn>
         </v-form>
     </v-col>
-  
   </v-row>
  
 </template>
 
 <script>
   export default {
+  provide(){
+    return{
+      KEY: 'inject login',
+    }
+  },
     // layout:'authentication',
     data(){
       return{
@@ -85,6 +89,9 @@
       },
       registerInstead(){
         this.$router.replace('/auth/register');
+      },
+      loginMethod(params){
+        console.log('thisis login method from login vue',params)
       }
     },
     beforeMount(){

@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app dark class="ma-3">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -7,7 +7,7 @@
       fixed
       app
       style="background-color: #3FB07C;"
-      class="pa-5"
+      class="pa-5 ma-2"
     >
       <v-list-item>
         <v-list-item-title class="text-h6">
@@ -92,7 +92,7 @@
     </v-app-bar>
 
     <v-main style="background-color: #1e1e2f; ">
-      <Nuxt />
+      <Nuxt/>
     </v-main>
  
   </v-app>
@@ -122,6 +122,11 @@ export default {
           title: 'Upload File',
           to: '/upload'
         },
+        {
+          icon: 'mdi-account',
+          title: 'Form',
+          to: '/form'
+        }
         
       ],
       miniVariant: false,

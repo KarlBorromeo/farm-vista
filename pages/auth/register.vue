@@ -75,6 +75,11 @@
   
   <script>
     export default {
+      provide(){
+        return{
+          KEY: 'inject register',
+        }
+      },
       // layout:'authentication',
       data(){
         return{
@@ -143,6 +148,9 @@
         },
         loginInstead(){
             this.$router.replace('/auth/login')
+        },
+        registerMethod(param){
+          console.log('thisis register method from register vue',param)
         }
       },
       beforeMount(){
